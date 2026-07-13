@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aegis Mark — QR codes that don’t expire</title>
+  <meta name="description" content="Free QR maker from Tycho Integrated. Your link goes in the code — no short links, no accounts, no expiry." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="wrap">
+    <p class="brand">Tycho Integrated · Aegis Mark</p>
+    <h1>QR codes that don’t expire</h1>
+    <p class="lede">
+      Paste a link. Download a PNG. Your real URL goes in the code — not a short link on our servers —
+      so it keeps working even if this page goes away.
+    </p>
+
+    <aside class="promise" aria-label="Free forever">
+      <span aria-hidden="true">✓</span>
+      <div>
+        <strong>Free forever.</strong>
+        No account. No watermark. No subscription that kills your codes later.
+        Built in your browser; we don’t need your link on a server.
+      </div>
+    </aside>
+
+    <div class="panel">
+      <form id="form" autocomplete="off">
+        <div class="field">
+          <label for="content">Link or text</label>
+          <textarea id="content" name="content" placeholder="https://www.tychointegrated.com/" spellcheck="false"></textarea>
+          <p class="hint">URLs, plain text, Wi‑Fi strings, etc. Shorter text scans easier.</p>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label for="size">Size (pixels)</label>
+            <div class="range-wrap">
+              <input id="size" type="range" min="256" max="1024" step="64" value="512" />
+              <output id="sizeOut" for="size">512 px</output>
+            </div>
+          </div>
+          <div class="field">
+            <label for="ecc">Error correction</label>
+            <select id="ecc">
+              <option value="M" selected>M — balanced (default)</option>
+              <option value="L">L — smaller code</option>
+              <option value="Q">Q — more damage tolerance</option>
+              <option value="H">H — highest tolerance</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn-primary" id="makeBtn">Make QR</button>
+          <button type="button" class="btn-secondary" id="pngBtn" disabled>Download PNG</button>
+          <button type="button" class="btn-secondary" id="jpgBtn" disabled>Download JPG</button>
+        </div>
+        <p class="hint">Prefer PNG. JPG can soften edges and some phones struggle to scan it.</p>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="preview" aria-live="polite">
+        <p class="placeholder" id="placeholder">Your QR will show up here.</p>
+        <canvas id="canvas" width="512" height="512" class="visually-hidden" aria-label="QR code preview"></canvas>
+      </div>
+    </div>
+
+    <footer class="footnote">
+      <p>
+        <strong style="color: var(--muted); font-weight: 600;">What this is not.</strong>
+        We don’t shorten links, track scans, or host a redirect. If a site’s QR “expires,” that’s usually their short link dying — not how QR codes work.
+      </p>
+      <p>
+        Also free:
+        <a href="https://chromewebstore.google.com/detail/jkafdhppknlbbdeamjjamoaplkhlpbce">Aegis Argus</a>
+        (Chrome) /
+        <a href="https://microsoftedge.microsoft.com/addons/detail/aphaebeppoegfbpgelmlmbncfeldngcj">Edge</a>.
+        Full Windows toolkit:
+        <a href="https://www.tychointegrated.com/">Aegis Defense Suite</a>.
+      </p>
+      <p>
+        Open source (MIT).
+        <a href="mailto:richard.harrison@tychointegrated.com">richard.harrison@tychointegrated.com</a>
+      </p>
+    </footer>
+  </main>
+
+  <script src="vendor/qrcode.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

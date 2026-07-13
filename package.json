@@ -1,0 +1,10 @@
+{
+  "name": "aegis-mark",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Free forever QR maker — runs in the browser, no short links, no expiry",
+  "license": "MIT",
+  "scripts": {
+    "vendor": "esbuild node_modules/qrcode/lib/browser.js --bundle --format=iife --global-name=QRCode --outfile=vendor/qrcode.js"
+  }
+}
